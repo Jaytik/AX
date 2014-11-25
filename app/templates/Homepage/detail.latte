@@ -1,0 +1,21 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+<h2>DETAIL</h2>
+{foreach $selection as $row}
+    {$row->jmeno}
+    {$row->plat}
+{/}
+<h2>DETAIL 2</h2>
+    {$uzivatel->jmeno}
+    {$uzivatel->plat}
+<h2>DETAIL 3</h2>
+
+<ul n:foreach ="$selection as $row">
+    <li> <a n:href="Homepage:detail, id => $row->id">{$row->jmeno}</a>
+            
+    {$row->plat}
+    </li>
+</ul>
+
+

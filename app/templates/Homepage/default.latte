@@ -1,0 +1,16 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+{foreach $selection as $row}
+    {$row->jmeno}
+    {$row->plat}
+{/}
+
+<ul n:foreach ="$selection as $row">
+    <li> <a n:href="Homepage:detail">{$row->jmeno}</a>
+            
+    {$row->plat}
+    </li>
+</ul>
+
+
