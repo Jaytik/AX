@@ -67,6 +67,7 @@ class SystemContainer extends Nette\DI\Container
 			'nette\\security\\iauthenticator' => array('22_App_Model_UserManager'),
 			'app\\model\\usermanager' => array('22_App_Model_UserManager'),
 			'app\\routerfactory' => array('23_App_RouterFactory'),
+			'app\\components\\filtrplat\\filtrplatcontrolfactory' => array('24'),
 			'nette\\di\\container' => array('container'),
 		),
 	);
@@ -364,6 +365,15 @@ class SystemContainer extends Nette\DI\Container
 	}
 
 
+	/**
+	 * @return App\Components\FiltrPlat\FiltrPlatControlFactory
+	 */
+	public function createService__24()
+	{
+		return new SystemContainer_App_Components_FiltrPlat_FiltrPlatControlFactoryImpl_24($this);
+	}
+
+
 	public function initialize()
 	{
 		date_default_timezone_set('Europe/Prague');
@@ -399,6 +409,28 @@ final class SystemContainer_Nette_Bridges_ApplicationLatte_ILatteFactoryImpl_net
 		$service->setTempDirectory('C:\\wampe\\www\\AX\\app/../temp/cache/latte');
 		$service->setAutoRefresh(TRUE);
 		$service->setContentType('html');
+		return $service;
+	}
+
+}
+
+
+
+final class SystemContainer_App_Components_FiltrPlat_FiltrPlatControlFactoryImpl_24 implements App\Components\FiltrPlat\FiltrPlatControlFactory
+{
+
+	private $container;
+
+
+	public function __construct(Nette\DI\Container $container)
+	{
+		$this->container = $container;
+	}
+
+
+	public function create()
+	{
+		$service = new App\Components\FiltrPlat\FiltrPlatControl($this->container->getService('database.default.context'));
 		return $service;
 	}
 

@@ -22,6 +22,11 @@ nette:
 
 
 services:
-	- App\Model\UserManager
-	- App\RouterFactory
-	router: @App\RouterFactory::createRouter
+        - App\Model\UserManager
+        - App\RouterFactory
+        - 
+            implement: App\Components\FiltrPlat\FiltrPlatControlFactory
+            #parameters: [db]
+            #arguments: [%db%]
+        
+        router: @App\RouterFactory::createRouter

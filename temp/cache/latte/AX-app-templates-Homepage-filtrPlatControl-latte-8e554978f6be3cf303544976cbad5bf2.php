@@ -1,28 +1,15 @@
 <?php
-// source: C:\wampe\www\AX\app/templates/Homepage/default.latte
+// source: C:\wampe\www\AX\app/templates/Homepage/filtrPlatControl.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('6164315916', 'html')
+list($_b, $_g, $_l) = $template->initialize('9837775237', 'html')
 ;
 // prolog Latte\Macros\BlockMacros
 //
 // block content
 //
-if (!function_exists($_b->blocks['content'][] = '_lb67715bdd62_content')) { function _lb67715bdd62_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
-?><h3 class="cente">Obecný výpis všech osob</h3>
-<?php $iterations = 0; foreach ($selection as $row) { ?><ul class="resu">
-    <li class="numero"><?php echo Latte\Runtime\Filters::escapeHtml($row->id, ENT_NOQUOTES) ?></li>
-    <li class="li-name"><a href="<?php echo Latte\Runtime\Filters::escapeHtml($_control->link("Homepage:detail", array('id'=>$row->id)), ENT_COMPAT) ?>
-"><?php echo Latte\Runtime\Filters::escapeHtml($row->jmeno, ENT_NOQUOTES) ?></a></li>
-    <li class="next"><?php echo Latte\Runtime\Filters::escapeHtml($row->plat, ENT_NOQUOTES) ?></li>
-    <li class="next"><?php echo Latte\Runtime\Filters::escapeHtml($row->mesto, ENT_NOQUOTES) ?></li>
-    <li class="next"><?php echo Latte\Runtime\Filters::escapeHtml($row->kraj, ENT_NOQUOTES) ?></li>
-    <li class="next"><?php echo Latte\Runtime\Filters::escapeHtml($row->stat, ENT_NOQUOTES) ?></li>
-    <li class="next"><a href="<?php echo Latte\Runtime\Filters::escapeHtml($_control->link("Homepage:detail", array('id'=>$row->id)), ENT_COMPAT) ?>
-"><img src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/css/icon.png"></a></li>
-    
-</ul>
-<?php $iterations++; } ?>
+if (!function_exists($_b->blocks['content'][] = '_lbb992c86caf_content')) { function _lbb992c86caf_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+;$_l->tmp = $_control->getComponent("filtrPlat"); if ($_l->tmp instanceof Nette\Application\UI\IRenderable) $_l->tmp->redrawControl(NULL, FALSE); $_l->tmp->render() ?>
     
     
     

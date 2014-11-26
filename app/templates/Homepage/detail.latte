@@ -1,7 +1,19 @@
 {* This is the welcome page, you can delete it *}
 
 {block content}
-<h2>DETAIL</h2>
+<div class="avatar">
+    <img src="/AX/www/css/avatar.png">
+</div>
+<div class="labos">
+    <h2>DETAIL OSOBY</h2>
+    <h1>{$uzivatel->jmeno}<h1>
+    <h2>{$uzivatel->mesto}<h2>
+    <h2>{$uzivatel->kraj} kraj<h2>
+    <h3>{$uzivatel->stat}<h3>
+    <h2 class="redo">Plat: {$uzivatel->plat},--<h2>
+</div>
+<a n:href="Homepage:default">BACK</a>
+{*<h2>DETAIL</h2>
 {foreach $selection as $row}
     {$row->jmeno}
     {$row->plat}
@@ -17,5 +29,5 @@
     {$row->plat}
     </li>
 </ul>
-
+*}
 
