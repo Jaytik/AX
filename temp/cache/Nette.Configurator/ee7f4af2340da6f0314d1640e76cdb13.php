@@ -35,7 +35,7 @@ class SystemContainer extends Nette\DI\Container
 				'nette.templateFactory',
 				'database.default',
 				'database.default.context',
-				'22_App_Model_UserManager',
+				'23_App_Model_UserManager',
 				'container',
 			),
 			'nette\\bridges\\framework\\netteaccessor' => array('nette'),
@@ -64,10 +64,13 @@ class SystemContainer extends Nette\DI\Container
 			'nette\\bridges\\applicationlatte\\templatefactory' => array('nette.templateFactory'),
 			'nette\\database\\connection' => array('database.default'),
 			'nette\\database\\context' => array('database.default.context'),
-			'nette\\security\\iauthenticator' => array('22_App_Model_UserManager'),
-			'app\\model\\usermanager' => array('22_App_Model_UserManager'),
-			'app\\routerfactory' => array('23_App_RouterFactory'),
-			'app\\components\\filtrplat\\filtrplatcontrolfactory' => array('24'),
+			'app\\components\\vypisdat\\vypisdatcontrolfactory' => array(
+				'22_App_Components_VypisDat_VypisDatControlFactory',
+			),
+			'nette\\security\\iauthenticator' => array('23_App_Model_UserManager'),
+			'app\\model\\usermanager' => array('23_App_Model_UserManager'),
+			'app\\routerfactory' => array('24_App_RouterFactory'),
+			'app\\components\\filtrplat\\filtrplatcontrolfactory' => array('25'),
 			'nette\\di\\container' => array('container'),
 		),
 	);
@@ -93,9 +96,18 @@ class SystemContainer extends Nette\DI\Container
 
 
 	/**
+	 * @return App\Components\VypisDat\VypisDatControlFactory
+	 */
+	public function createService__22_App_Components_VypisDat_VypisDatControlFactory()
+	{
+		return new SystemContainer_App_Components_VypisDat_VypisDatControlFactoryImpl_22_App_Components_VypisDat_VypisDatControlFactory($this);
+	}
+
+
+	/**
 	 * @return App\Model\UserManager
 	 */
-	public function createService__22_App_Model_UserManager()
+	public function createService__23_App_Model_UserManager()
 	{
 		$service = new App\Model\UserManager($this->getService('database.default.context'));
 		return $service;
@@ -105,7 +117,7 @@ class SystemContainer extends Nette\DI\Container
 	/**
 	 * @return App\RouterFactory
 	 */
-	public function createService__23_App_RouterFactory()
+	public function createService__24_App_RouterFactory()
 	{
 		$service = new App\RouterFactory;
 		return $service;
@@ -335,7 +347,7 @@ class SystemContainer extends Nette\DI\Container
 	 */
 	public function createServiceRouter()
 	{
-		$service = $this->getService('23_App_RouterFactory')->createRouter();
+		$service = $this->getService('24_App_RouterFactory')->createRouter();
 		if (!$service instanceof Nette\Application\IRouter) {
 			throw new Nette\UnexpectedValueException('Unable to create service \'router\', value returned by factory is not Nette\\Application\\IRouter type.');
 		}
@@ -359,7 +371,7 @@ class SystemContainer extends Nette\DI\Container
 	 */
 	public function createServiceUser()
 	{
-		$service = new Nette\Security\User($this->getService('nette.userStorage'), $this->getService('22_App_Model_UserManager'));
+		$service = new Nette\Security\User($this->getService('nette.userStorage'), $this->getService('23_App_Model_UserManager'));
 		Tracy\Debugger::getBar()->addPanel(new Nette\Bridges\SecurityTracy\UserPanel($service));
 		return $service;
 	}
@@ -368,9 +380,9 @@ class SystemContainer extends Nette\DI\Container
 	/**
 	 * @return App\Components\FiltrPlat\FiltrPlatControlFactory
 	 */
-	public function createService__24()
+	public function createService__25()
 	{
-		return new SystemContainer_App_Components_FiltrPlat_FiltrPlatControlFactoryImpl_24($this);
+		return new SystemContainer_App_Components_FiltrPlat_FiltrPlatControlFactoryImpl_25($this);
 	}
 
 
@@ -385,6 +397,28 @@ class SystemContainer extends Nette\DI\Container
 		Nette\Utils\SafeStream::register();
 		Nette\Reflection\AnnotationsParser::setCacheStorage($this->getByType("Nette\Caching\IStorage"));
 		Nette\Reflection\AnnotationsParser::$autoRefresh = TRUE;
+	}
+
+}
+
+
+
+final class SystemContainer_App_Components_VypisDat_VypisDatControlFactoryImpl_22_App_Components_VypisDat_VypisDatControlFactory implements App\Components\VypisDat\VypisDatControlFactory
+{
+
+	private $container;
+
+
+	public function __construct(Nette\DI\Container $container)
+	{
+		$this->container = $container;
+	}
+
+
+	public function create()
+	{
+		$service = new App\Components\VypisDat\VypisDatControl($this->container->getService('database.default.context'));
+		return $service;
 	}
 
 }
@@ -416,7 +450,7 @@ final class SystemContainer_Nette_Bridges_ApplicationLatte_ILatteFactoryImpl_net
 
 
 
-final class SystemContainer_App_Components_FiltrPlat_FiltrPlatControlFactoryImpl_24 implements App\Components\FiltrPlat\FiltrPlatControlFactory
+final class SystemContainer_App_Components_FiltrPlat_FiltrPlatControlFactoryImpl_25 implements App\Components\FiltrPlat\FiltrPlatControlFactory
 {
 
 	private $container;

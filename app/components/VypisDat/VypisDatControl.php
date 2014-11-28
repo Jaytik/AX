@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Components\FiltrPlat;
+namespace App\Components\VypisDat;
 
 use Nette;
 /*
@@ -10,11 +10,11 @@ use Nette;
  */
 
 /**
- * Description of FiltrPlatControl
+ * Description of VypisDatControl
  *
  * @author Jago
  */
-class FiltrPlatControl extends \Nette\Application\UI\Control{
+class VypisDatControl extends \Nette\Application\UI\Control{
     //put your code here
      private $db;
         

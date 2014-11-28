@@ -2,13 +2,13 @@
 // source: C:\wampe\www\AX\app/templates/Homepage/default.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('6164315916', 'html')
+list($_b, $_g, $_l) = $template->initialize('1717009358', 'html')
 ;
 // prolog Latte\Macros\BlockMacros
 //
 // block content
 //
-if (!function_exists($_b->blocks['content'][] = '_lb67715bdd62_content')) { function _lb67715bdd62_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['content'][] = '_lbdb024a09d9_content')) { function _lbdb024a09d9_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?><h3 class="cente">Obecný výpis všech osob</h3>
 <?php $iterations = 0; foreach ($selection as $row) { ?><ul class="resu">
     <li class="numero"><?php echo Latte\Runtime\Filters::escapeHtml($row->id, ENT_NOQUOTES) ?></li>

@@ -1,15 +1,15 @@
 <?php
-// source: C:\wampe\www\AX\app/templates/Homepage/filtrPlatControl.latte
+// source: C:\wampe\www\AX\app/templates/Homepage/selForm.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('1342210140', 'html')
+list($_b, $_g, $_l) = $template->initialize('2191920531', 'html')
 ;
 // prolog Latte\Macros\BlockMacros
 //
 // block content
 //
-if (!function_exists($_b->blocks['content'][] = '_lb1ae04044f0_content')) { function _lb1ae04044f0_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
-;$_l->tmp = $_control->getComponent("filtrPlat"); if ($_l->tmp instanceof Nette\Application\UI\IRenderable) $_l->tmp->redrawControl(NULL, FALSE); $_l->tmp->render() ?>
+if (!function_exists($_b->blocks['content'][] = '_lb4e00791c1a_content')) { function _lb4e00791c1a_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+;$_l->tmp = $_control->getComponent("vypisDat"); if ($_l->tmp instanceof Nette\Application\UI\IRenderable) $_l->tmp->redrawControl(NULL, FALSE); $_l->tmp->render() ?>
     
     
     

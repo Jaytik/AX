@@ -23,10 +23,14 @@ nette:
 
 services:
         - App\Model\UserManager
+        - App\Components\VypisDat\VypisDatControlFactory
         - App\RouterFactory
         - 
             implement: App\Components\FiltrPlat\FiltrPlatControlFactory
             #parameters: [db]
             #arguments: [%db%]
+
+
+            
         
         router: @App\RouterFactory::createRouter

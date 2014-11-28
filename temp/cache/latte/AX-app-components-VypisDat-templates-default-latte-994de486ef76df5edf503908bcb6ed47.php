@@ -1,8 +1,8 @@
 <?php
-// source: C:\wampe\www\AX\app\components\FiltrPlat/templates/default.latte
+// source: C:\wampe\www\AX\app\components\VypisDat/templates/default.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('0950910884', 'html')
+list($_b, $_g, $_l) = $template->initialize('3303517207', 'html')
 ;
 // prolog Nette\Bridges\ApplicationLatte\UIMacros
 

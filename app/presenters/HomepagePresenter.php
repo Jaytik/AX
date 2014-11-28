@@ -13,9 +13,12 @@ class HomepagePresenter extends BasePresenter
 {
         private $db;
         private $filtrPlatControlFactory;
-        public function __construct(Nette\Database\Context $db, \App\Components\FiltrPlat\FiltrPlatControlFactory $filtrPlatControlFactory) {
+        private $vypisDatControlFactory;
+        public function __construct(\Nette\Database\Context $db, \App\Components\FiltrPlat\FiltrPlatControlFactory $filtrPlatControlFactory, \App\Components\VypisDat\VypisDatControlFactory $vypisDatControlFactory) {
             $this->db = $db;
             $this->filtrPlatControlFactory = $filtrPlatControlFactory;
+            $this->vypisDatControlFactory = $vypisDatControlFactory;
+            parent::__construct();
         }
     
 	public function renderDefault()
@@ -47,11 +50,20 @@ class HomepagePresenter extends BasePresenter
         public function renderSave(){
             return $this->filtrPlat;
         }
+        public function renderSelForm(){
+            //return $this->vypisDat;
+            $control = $this->getComponent('vypisDat');
+            //dump ($control);
+        }
         protected function createComponentFiltrPlat() {
             return $this->filtrPlatControlFactory->create();
             
             
             
+        }
+        
+        protected function createComponentVypisDat() {
+            return $this->vypisDatControlFactory->create();
         }
         
 

@@ -2,20 +2,20 @@
 // source: C:\wampe\www\AX\app/templates/@layout.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('0037553106', 'html')
+list($_b, $_g, $_l) = $template->initialize('0518644154', 'html')
 ;
 // prolog Latte\Macros\BlockMacros
 //
 // block head
 //
-if (!function_exists($_b->blocks['head'][] = '_lb91af0e49f0_head')) { function _lb91af0e49f0_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['head'][] = '_lba90a59b309_head')) { function _lba90a59b309_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block scripts
 //
-if (!function_exists($_b->blocks['scripts'][] = '_lb8fe13720e2_scripts')) { function _lb8fe13720e2_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['scripts'][] = '_lbe942f8b894_scripts')) { function _lbe942f8b894_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>	<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/jquery.js"></script>
 	<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/netteForms.js"></script>
 	<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/main.js"></script>
@@ -75,6 +75,8 @@ call_user_func(reset($_b->blocks['head']), $_b, get_defined_vars())  ?>
 ">Home |</a></li>
                 <li><a href="<?php echo Latte\Runtime\Filters::escapeHtml($_control->link("Homepage:FiltrPlatControl"), ENT_COMPAT) ?>
 ">Save |</a></li>
+                <li><a href="<?php echo Latte\Runtime\Filters::escapeHtml($_control->link("Homepage:SelForm"), ENT_COMPAT) ?>
+">Select |</a></li>
                 <li><a href="<?php echo Latte\Runtime\Filters::escapeHtml($_control->link("Homepage:default"), ENT_COMPAT) ?>
 ">Login |</a></li>
                 <li>Contact</li>
